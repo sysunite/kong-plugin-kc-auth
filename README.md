@@ -23,8 +23,8 @@ This file holds the schema of kh-auth configuration, so that the user can only e
 This file is where the methods of the base_plugin.lua interface are implemented and contain the logic at the entry-points in the request life-cycle. For kh-auth, only the `access` entry-point is used to deny further access if authentication at Kong Handler failed.
 
 ## How to install
-1. Preferably use Docker to run Kong
+1. Preferably use Docker to run Kong (https://github.com/weaverplatform/kong-docker)
 2. Set the following environment variables:
   - `KONG_PLUGINS: bundled,kh-auth`
   - `KONG_LUA_PACKAGE_PATH: /usr/local/custom/?.lua;;`
-3. Mount or place the plugin contents in `/usr/local/custom` at the docker container. For example, The file `handler.lua` will then be located under `/usr/local/custom/kong/plugins/kh-auth/handler.lua`
+3. Mount or place all files within this repository (maintaining directory structure) in `/usr/local/custom` at the docker container. For example, The file `handler.lua` will then be located under `/usr/local/custom/kong/plugins/kh-auth/handler.lua`
