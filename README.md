@@ -2,10 +2,12 @@
 The kh-auth (kong-handler authentication) Kong plugin provides authentication for services accessed by the Weaver SDK that are proxied through Kong. This plugin requires a running and reachable Kong Handler instance (https://github.com/weaverplatform/kong-handler).
 
 ## Motivation
-In applications where Weaver is deployed, we tend to promote a microservice architecture of small, reusable and standalone http services that are accessed by the Weaver SDK. Kong fits very well in providing a single endpoint through which these services and routes that are exposed to the Weaver SDK. This plugin provides authentication on a per route basis for every service, allowing fine grained ACL control on all endpoints.
+In applications where Weaver is deployed, we tend to promote a microservice architecture of small, reusable and standalone http services that are accessed by the Weaver SDK. Kong fits very well in providing a single endpoint through which these services and routes are exposed to the Weaver SDK. This plugin provides authentication on a per route basis for every service, allowing fine grained ACL control on all endpoints.
 
+####  Kong
 Kong is essentially a customizable API Management Layer built on top of Nginx that utilizes OpenResty to dynamically configure NGINX and process HTTP requests.
 
+#### OpenResty
 OpenResty is a software suite that bundles NGINX, a set of modules, LuaJIT, and a set of Lua libraries. Chief among these is `ngx_http_lua_module`, an NGINX module which embeds Lua and provides Lua equivalents for most NGINX request phases. This effectively allows development of NGINX modules in Lua while maintaining high performance (LuaJIT is quite fast), and Kong uses it to provide its core configuration management and plugin management infrastructure.
 
 ## Plugin Structure
