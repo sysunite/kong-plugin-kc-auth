@@ -8,13 +8,13 @@ version = "0.1.0-1"
 
 supported_platforms = {"linux", "macosx"}
 source = {
-  url = "https://github.com/weaverplatform/kong-plugin-kc-auth",
+  url = "https://github.com/sysunite/kong-plugin-kc-auth",
   tag = "0.1.0"
 }
 
 description = {
-  summary  = "The kc-auth (kong-controller authentication) Kong plugin provides authentication for services accessed by the Weaver SDK that are proxied through Kong.",
-  homepage = "http://weaverplatform.org",
+  summary  = "The kc-auth (kong-controller authentication) Kong plugin provides authentication for services registered though the Kong Controller.",
+  homepage = "http://sysunite.com",
   license  = "GPL-3.0"
 }
 

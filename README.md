@@ -1,8 +1,8 @@
 # kc-auth kong plugin
-The kc-auth (kong-controller authentication) Kong plugin provides authentication for services accessed by the Weaver SDK that are proxied through Kong. This plugin requires a running and reachable Kong Handler instance (https://github.com/weaverplatform/kong-controller).
+The kc-auth (kong-controller authentication) Kong plugin provides authentication for services registered though the Kong Controller that are proxied through Kong. This plugin requires a running and reachable Kong Controller instance (https://github.com/sysunite/kong-controller).
 
 ## Motivation
-In applications where Weaver is deployed, we tend to promote a microservice architecture of small, reusable and standalone http services that are accessed by the Weaver SDK. Kong fits very well in providing a single endpoint through which these services and routes are exposed to the Weaver SDK. This plugin provides authentication on a per route basis for every service, allowing fine grained ACL control on all endpoints.
+We tend to promote a microservice architecture of small, reusable and standalone http services that are directly accessed by the client application. Kong fits very well in providing a single endpoint through which these services and routes are exposed to any client SDK. This plugin provides authentication on a per route basis for every service, allowing fine grained ACL control on all endpoints.
 
 ###  Kong and OpenResty
 Kong is essentially a customizable API Management Layer built on top of Nginx that utilizes OpenResty to dynamically configure NGINX and process HTTP requests.
@@ -23,7 +23,7 @@ This file holds the schema of kc-auth configuration, so that the user can only e
 This file is where the methods of the base_plugin.lua interface are implemented and contain the logic at the entry-points in the request life-cycle. For kc-auth, only the `access` entry-point is used to deny further access if authentication at Kong Handler failed.
 
 ## How to install
-1. Preferably use Docker to run Kong (https://github.com/weaverplatform/kong-docker)
+1. Preferably use Docker to run Kong (https://github.com/sysunite/kong-docker-compose)
 2. Set the following environment variables:
   - `KONG_PLUGINS: bundled,kc-auth`
   - `KONG_LUA_PACKAGE_PATH: /usr/local/custom/?.lua;;`
