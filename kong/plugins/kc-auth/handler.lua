@@ -6,16 +6,16 @@
 local BasePlugin = require("kong.plugins.base_plugin")
 
 -- This is the plugin object that this file must return
-local KhAuth = BasePlugin:extend()
+local KcAuth = BasePlugin:extend()
 
 -- set the plugin priority, which determines plugin execution order
-KhAuth.PRIORITY = 1000
+KcAuth.PRIORITY = 1000
 
 -- constructor
-function KhAuth:new()
+function KcAuth:new()
   -- The call to `.super` is a call to the base_plugin, which does nothing,
   -- except loggin that the specific handler was executed.
-  KhAuth.super.new(self, "kc-auth")
+  KcAuth.super.new(self, "kc-auth")
 end
 
 -- The steps in order of executation for the complete authentication
@@ -27,8 +27,8 @@ local steps = {
 }
 
 -- This is the actual access handler where we need to all the checking
-function KhAuth:access(conf)
-  KhAuth.super.access(self)
+function KcAuth:access(conf)
+  KcAuth.super.access(self)
 
   for _, stepFile in ipairs(steps) do
     local step = require("kong.plugins.kc-auth.steps." .. stepFile)
@@ -42,4 +42,4 @@ function KhAuth:access(conf)
   ngx.req.set_header("X-Kong-KP-Controller", "authenticated")
 end
 
-return KhAuth
+return KcAuth
