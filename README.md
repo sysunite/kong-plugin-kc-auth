@@ -1,5 +1,5 @@
 # kc-auth kong plugin
-The kc-auth (kong-handler authentication) Kong plugin provides authentication for services accessed by the Weaver SDK that are proxied through Kong. This plugin requires a running and reachable Kong Handler instance (https://github.com/weaverplatform/kong-handler).
+The kc-auth (kong-controller authentication) Kong plugin provides authentication for services accessed by the Weaver SDK that are proxied through Kong. This plugin requires a running and reachable Kong Handler instance (https://github.com/weaverplatform/kong-controller).
 
 ## Motivation
 In applications where Weaver is deployed, we tend to promote a microservice architecture of small, reusable and standalone http services that are accessed by the Weaver SDK. Kong fits very well in providing a single endpoint through which these services and routes are exposed to the Weaver SDK. This plugin provides authentication on a per route basis for every service, allowing fine grained ACL control on all endpoints.
