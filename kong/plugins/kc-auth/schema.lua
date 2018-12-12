@@ -5,8 +5,8 @@ return {
   -- The plugin configuration's schema is described here.
   fields = {
 
-    -- The url of Kong Handler to check permission on a specific route
-    kong_handler_url = {
+    -- The url of Kong Controller to check permission on a specific route
+    kong_controller_url = {
       required = true,
       type     = "string",
       default  = "http://host.docker.internal:7090",

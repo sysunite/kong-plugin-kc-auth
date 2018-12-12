@@ -39,7 +39,7 @@ function KhAuth:access(conf)
   end
 
   -- All good, set this header which might be useful for the upstream service
-  ngx.req.set_header("X-Kong-KP-Handler", "authenticated")
+  ngx.req.set_header("X-Kong-KP-Controller", "authenticated")
 end
 
 return KhAuth

@@ -1,8 +1,8 @@
-local kongHandlerRequest = require("kong.plugins.kc-auth.util.kh-request")
+local kongControllerRequest = require("kong.plugins.kc-auth.util.kh-request")
 
 -- Verify if current user has access to current route
 function verifyRouteAccess(conf)
-  local ok, result = kongHandlerRequest(conf, '/routeAccess', "&routeId=" .. conf['route_id'] )
+  local ok, result = kongControllerRequest(conf, '/routeAccess', "&routeId=" .. conf['route_id'] )
 
   if not ok then
     return false, result
