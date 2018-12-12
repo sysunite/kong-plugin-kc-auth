@@ -1,4 +1,4 @@
-local kongHandlerRequest = require("kong.plugins.kh-auth.util.kong-handler-request")
+local kongHandlerRequest = require("kong.plugins.kc-auth.util.kh-request")
 
 -- Verify if current user has access to supplied projectId if given
 function verifyProjectAccess(conf)

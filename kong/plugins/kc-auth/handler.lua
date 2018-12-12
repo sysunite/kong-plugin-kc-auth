@@ -15,7 +15,7 @@ KhAuth.PRIORITY = 1000
 function KhAuth:new()
   -- The call to `.super` is a call to the base_plugin, which does nothing,
   -- except loggin that the specific handler was executed.
-  KhAuth.super.new(self, "kh-auth")
+  KhAuth.super.new(self, "kc-auth")
 end
 
 -- The steps in order of executation for the complete authentication
@@ -31,7 +31,7 @@ function KhAuth:access(conf)
   KhAuth.super.access(self)
 
   for _, stepFile in ipairs(steps) do
-    local step = require("kong.plugins.kh-auth.steps." .. stepFile)
+    local step = require("kong.plugins.kc-auth.steps." .. stepFile)
     local ok, err = step(conf)
     if not ok then
       return kong.response.exit(err.code, { message = err.message })

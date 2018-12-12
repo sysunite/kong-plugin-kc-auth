@@ -1,4 +1,4 @@
-local kongHandlerRequest = require("kong.plugins.kh-auth.util.kong-handler-request")
+local kongHandlerRequest = require("kong.plugins.kc-auth.util.kh-request")
 
 -- Supply a list of graph names that this user has access to within the project
 function supplyAllowedGraphs(conf)
